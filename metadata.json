@@ -1,0 +1,6 @@
+{
+  "name": "PitchArena",
+  "description": "AI-Powered Startup Innovation & Evaluation Platform connecting student founders, expert judges, and administrators in a transparent, gamified venture ecosystem.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

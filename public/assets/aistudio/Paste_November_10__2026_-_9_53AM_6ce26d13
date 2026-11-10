@@ -1,0 +1,1916 @@
+# MASTER PROJECT DEVELOPMENT PROMPT
+# PITCHARENA – AI-POWERED STARTUP INNOVATION & EVALUATION PLATFORM
+
+Act as a senior full-stack software architect, UI/UX designer, database engineer, cybersecurity specialist, and AI application developer.
+
+Your task is to design and develop a complete, professional, responsive, production-oriented web application named **PitchArena**.
+
+Do not build just a landing page or a static dashboard prototype. Build a fully functional application with frontend, backend, MySQL database, authentication, APIs, role-based permissions, data management, and working interactions.
+
+The application should be structured so that it can eventually be extended into a React Native mobile application.
+
+---
+
+# 1. PROJECT OVERVIEW
+
+Project Name: PitchArena
+
+Tagline: Your Idea. Your Pitch. Your Arena.
+
+Project Description:
+
+PitchArena is an AI-powered, gamified startup innovation and evaluation platform that connects student founders, startup teams, industry experts, investors, mentors, and administrators.
+
+The platform allows students and founders to submit startup ideas, participate in innovation challenges, create startup profiles, receive AI-powered suggestions, and track their startup journey.
+
+Professional reviewers and judges evaluate submitted startups using a transparent, structured scoring system.
+
+Administrators manage users, startup submissions, challenges, judge assignments, evaluations, competitions, results, rewards, and platform analytics.
+
+PitchArena should combine the concept of a startup accelerator, Shark Tank-style pitch competition, innovation challenge platform, and startup development ecosystem.
+
+The application should initially support three distinct user interfaces:
+
+1. Founder / Student Interface
+2. Reviewer / Judge Interface
+3. Administrator Interface
+
+All three interfaces must communicate through a common backend and MySQL database.
+
+---
+
+# 2. TECHNOLOGY STACK – STRICT REQUIREMENTS
+
+Use the following technology stack.
+
+FRONTEND:
+- React.js
+- JavaScript
+- React Router DOM
+- Tailwind CSS
+- Lucide React icons
+- Axios for API communication
+- Recharts for analytics and charts
+- React Context API for authentication and shared state
+
+BACKEND:
+- Node.js
+- Express.js
+- REST API architecture
+- JavaScript
+
+DATABASE:
+- MySQL
+- mysql2 package
+- Direct SQL queries
+
+AUTHENTICATION AND SECURITY:
+- JWT-based authentication
+- bcrypt password hashing
+- Role-based access control
+- Protected frontend routes
+- Protected backend APIs
+- Secure refresh-token management
+- Input validation and sanitization
+
+ADDITIONAL TOOLS:
+- Hoppscotch for API testing
+- Multer for file uploads
+- Nodemailer or an email service for notifications
+- Cloud object storage for uploaded documents
+- Recharts for dashboards
+
+IMPORTANT TECHNICAL RESTRICTIONS:
+
+1. Do not use Prisma.
+2. Do not use MongoDB.
+3. Do not use Firebase.
+4. Do not use Supabase.
+5. Use MySQL with mysql2 and parameterized SQL queries.
+6. Do not create a frontend-only mock application.
+7. Do not hardcode dashboard statistics or fake application records.
+8. All important functionality must communicate with the backend.
+9. Keep frontend and backend in separate folders.
+10. Use environment variables for sensitive credentials.
+11. Do not expose API keys or database passwords in frontend code.
+
+The React Native mobile application will be a later phase. Keep backend APIs reusable for both web and mobile clients.
+
+---
+
+# 3. THREE SEPARATE USER INTERFACES
+
+This is the most important architectural requirement.
+
+Create three independent role-based dashboard experiences.
+
+Each user role must have:
+- Its own dashboard.
+- Its own navigation sidebar.
+- Its own pages.
+- Its own accessible API endpoints.
+- Its own permissions.
+- Its own user experience.
+
+## A. FOUNDER / STUDENT INTERFACE
+
+Role identifier: STUDENT
+
+Purpose:
+
+Allow founders and students to register, create startups, form teams, explore innovation challenges, submit applications, receive feedback, track progress, earn coins, and use AI startup tools.
+
+Student navigation:
+
+1. Dashboard
+2. Explore Challenges
+3. My Startups
+4. My Applications
+5. My Team
+6. AI Startup Assistant
+7. Pitch Studio
+8. Startup Roadmap
+9. Notifications
+10. Achievements and Coins
+11. Leaderboard
+12. Profile and Settings
+
+### Student Page 1: Dashboard
+
+Route: /student/dashboard
+
+Include:
+
+- Personalized welcome message.
+- Profile completion percentage.
+- Total startups.
+- Total submitted applications.
+- Applications under review.
+- Shortlisted applications.
+- Rejected applications.
+- Total coins earned.
+- Startup readiness score.
+- Recent application activity.
+- Upcoming deadlines.
+- Recommended challenges.
+- Recent notifications.
+- Startup progress overview.
+
+All statistics must be retrieved from MySQL through backend APIs.
+
+### Student Page 2: Explore Challenges
+
+Route: /student/challenges
+
+Display all published challenges.
+
+Each challenge card should include:
+- Challenge title.
+- Organization or department.
+- Category.
+- Short description.
+- Eligibility.
+- Required skills.
+- Submission deadline.
+- Reward information.
+- Application status.
+
+Add search, sorting, and filters.
+
+Challenge detail page:
+
+/student/challenges/:id
+
+Include:
+- Complete problem statement.
+- Expected solution.
+- Requirements.
+- Eligibility criteria.
+- Submission guidelines.
+- Deadline.
+- Prize and reward information.
+- Apply Now button.
+
+Only active and eligible challenges should accept applications.
+
+### Student Page 3: My Startups
+
+Route: /student/startups
+
+Allow users to create and manage multiple startup profiles.
+
+Startup creation form:
+
+- Startup name.
+- Logo.
+- Tagline.
+- Industry.
+- Problem statement.
+- Proposed solution.
+- Target audience.
+- Business model.
+- Revenue model.
+- Competitor information.
+- Unique selling proposition.
+- Website URL.
+- Pitch deck.
+- Supporting documents.
+
+Provide:
+- Create startup.
+- Edit startup.
+- View startup.
+- Manage team.
+- View associated applications.
+
+Startup details route:
+
+/student/startups/:id
+
+### Student Page 4: My Applications
+
+Route: /student/applications
+
+Display all applications submitted by the logged-in student.
+
+Show:
+- Application ID.
+- Startup name.
+- Challenge.
+- Submission date.
+- Current status.
+- Assigned competition round.
+- Action buttons.
+
+Application detail route:
+
+/student/applications/:id
+
+Display:
+- Submission details.
+- Startup information.
+- Documents.
+- Application timeline.
+- Current status.
+- Released judge feedback.
+- Revision requests.
+- Upcoming pitch sessions.
+- Final results.
+
+Implement a visual progress tracker.
+
+Application statuses:
+
+DRAFT
+SUBMITTED
+UNDER_REVIEW
+NEEDS_REVISION
+SHORTLISTED
+REJECTED
+PITCH_SCHEDULED
+PITCH_COMPLETED
+PILOT
+SELECTED
+CLOSED
+
+Students must not access confidential judge discussions or internal administrator notes.
+
+### Student Page 5: My Team
+
+Route: /student/team
+
+Allow founders to:
+- Create teams.
+- Invite members.
+- Add member information.
+- Assign team leader.
+- Manage team roles.
+- View member skills.
+- Remove members when permitted.
+
+Team information:
+- Name.
+- Email.
+- College.
+- Department.
+- Academic year.
+- Skills.
+- Team role.
+
+Use email invitations and prevent unauthorized team membership changes.
+
+### Student Page 6: AI Startup Assistant
+
+Route: /student/ai-assistant
+
+This should be one of PitchArena's standout features.
+
+Provide an AI-powered conversational assistant that helps founders develop startup ideas.
+
+Capabilities:
+
+- Analyze startup ideas.
+- Identify problems with an idea.
+- Suggest improvements.
+- Recommend target markets.
+- Suggest business models.
+- Identify potential revenue streams.
+- Generate startup development plans.
+- Suggest possible competitors to research.
+- Recommend technologies.
+- Suggest suitable innovation challenges.
+- Help improve startup descriptions.
+
+Create a clean chat interface with conversation history.
+
+Use a backend AI service and a securely stored API key.
+
+Never expose the AI API key in React code.
+
+If an AI API is unavailable, show a graceful error and keep the rest of the application functional.
+
+Clearly label AI-generated suggestions as suggestions, not verified market research.
+
+### Student Page 7: Pitch Studio
+
+Route: /student/pitch-studio
+
+Create an interactive workspace where founders can prepare their startup pitches.
+
+Include:
+- Startup elevator pitch generator.
+- Problem-solution presentation structure.
+- Business model summary.
+- Target market summary.
+- Unique selling proposition.
+- Revenue model.
+- Competition analysis.
+- Pitch deck checklist.
+- Presentation preparation tips.
+
+Allow students to save and edit pitch content.
+
+### Student Page 8: Startup Roadmap
+
+Route: /student/roadmap
+
+Create an AI-assisted startup development roadmap.
+
+Suggested stages:
+
+1. Idea validation.
+2. Problem research.
+3. Market research.
+4. Competitor analysis.
+5. MVP planning.
+6. Prototype development.
+7. User testing.
+8. Business model validation.
+9. Pitch preparation.
+10. Funding and scaling.
+
+Allow users to:
+- Mark milestones complete.
+- Add notes.
+- Track progress.
+- View completed milestones.
+- Receive recommended next steps.
+
+### Student Page 9: Notifications
+
+Route: /student/notifications
+
+Include application updates, judge feedback notifications, deadlines, announcements, pitch schedules, and results.
+
+### Student Page 10: Achievements and Coins
+
+Route: /student/rewards
+
+Implement:
+- Total coins.
+- Coin transaction history.
+- Achievement badges.
+- Competition achievements.
+- Founder milestones.
+- Public leaderboard.
+
+Example rewards:
+- Complete profile: 20 coins.
+- First startup submission: 50 coins.
+- Shortlisting: 100 coins.
+- Competition winner: 250 coins.
+- Completed pilot milestone: 150 coins.
+
+All transactions must be generated and validated on the backend.
+
+### Student Page 11: Leaderboard
+
+Route: /student/leaderboard
+
+Display publicly permitted rankings.
+
+Include:
+- Top founders.
+- Top startups.
+- Highest-rated startups.
+- Most active innovators.
+- Competition winners.
+
+Do not expose private application or evaluation data.
+
+### Student Page 12: Profile and Settings
+
+Route: /student/profile
+
+Include personal details, education, skills, profile image, password management, notification preferences, and account security.
+
+---
+
+## B. REVIEWER / JUDGE INTERFACE
+
+Role identifier: JUDGE
+
+Purpose:
+
+Provide judges with a professional evaluation workspace to assess assigned startup applications, score submissions, write feedback, and participate in pitch sessions.
+
+Judge navigation:
+
+1. Dashboard
+2. Assigned Applications
+3. Evaluation Workspace
+4. Shortlisted Startups
+5. Pitch Sessions
+6. My Evaluations
+7. Notifications
+8. Profile and Settings
+
+### Judge Page 1: Dashboard
+
+Route: /judge/dashboard
+
+Display:
+- Total assigned applications.
+- Pending reviews.
+- Completed evaluations.
+- Upcoming deadlines.
+- Upcoming pitch sessions.
+- Recently evaluated startups.
+- Evaluation completion statistics.
+
+### Judge Page 2: Assigned Applications
+
+Route: /judge/applications
+
+Show only applications assigned to the currently authenticated judge.
+
+Display:
+- Application ID.
+- Startup name.
+- Industry.
+- Challenge.
+- Submission date.
+- Review deadline.
+- Evaluation status.
+- View button.
+
+Filters:
+- Pending.
+- In progress.
+- Completed.
+- Shortlisted.
+- Rejected.
+
+Judges must never access unassigned applications.
+
+Enforce assignment ownership on the backend.
+
+### Judge Page 3: Evaluation Workspace
+
+Route: /judge/evaluate/:applicationId
+
+Create a professional two-column evaluation interface.
+
+LEFT SECTION:
+- Startup overview.
+- Problem statement.
+- Solution.
+- Business model.
+- Target market.
+- Technical details.
+- Founder and team.
+- Pitch deck.
+- Supporting documents.
+
+RIGHT SECTION:
+Structured scoring form.
+
+Evaluation criteria:
+
+1. Innovation – 20%.
+2. Problem relevance – 15%.
+3. Technical feasibility – 20%.
+4. Market potential – 15%.
+5. Scalability – 15%.
+6. Team capability – 10%.
+7. Presentation quality – 5%.
+
+Allow judges to provide:
+- Score for each criterion out of 10.
+- Strengths.
+- Weaknesses.
+- Suggestions.
+- General comments.
+- Final recommendation.
+
+Recommendations:
+- SHORTLIST.
+- NEEDS_REVISION.
+- REJECT.
+
+Calculate weighted scores on the backend.
+
+Formula:
+
+Final Score = Sum of (Criterion Score × Criterion Weight) / 10.
+
+The resulting score is out of 100.
+
+Include:
+- Save Draft.
+- Submit Evaluation.
+
+Once an evaluation is submitted, lock it unless an authorized administrator reopens it.
+
+Maintain a complete evaluation history.
+
+### Judge Page 4: Shortlisted Startups
+
+Route: /judge/shortlisted
+
+Show relevant shortlisted startups and their permitted information.
+
+### Judge Page 5: Pitch Sessions
+
+Route: /judge/sessions
+
+Display:
+- Startup.
+- Pitch date.
+- Time.
+- Duration.
+- Meeting link.
+- Venue.
+- Session status.
+
+Support presentation scoring when authorized.
+
+### Judge Page 6: My Evaluations
+
+Route: /judge/history
+
+Show previously submitted evaluations, scores, recommendations, and feedback.
+
+Judges must not view other judges' confidential evaluations.
+
+### Judge Page 7: Notifications
+
+Route: /judge/notifications
+
+Display new assignments, approaching deadlines, reassigned applications, and session updates.
+
+### Judge Page 8: Profile and Settings
+
+Route: /judge/profile
+
+Include professional information, organization, expertise, skills, password settings, and notification preferences.
+
+---
+
+## C. ADMINISTRATOR INTERFACE
+
+Role identifier: ADMIN
+
+Purpose:
+
+Give administrators complete control over the platform's users, challenges, startup applications, judges, evaluations, competitions, and results.
+
+Admin navigation:
+
+1. Dashboard
+2. User Management
+3. Startup Management
+4. Challenge Management
+5. Application Management
+6. Judge Management
+7. Judge Assignments
+8. Evaluation Management
+9. Pitch Sessions
+10. Results and Leaderboard
+11. Coins and Rewards
+12. Announcements
+13. Reports and Analytics
+14. Audit Logs
+15. Platform Settings
+
+### Admin Page 1: Dashboard
+
+Route: /admin/dashboard
+
+Include:
+- Total users.
+- Total students.
+- Total judges.
+- Total startups.
+- Total applications.
+- Pending reviews.
+- Shortlisted applications.
+- Rejected applications.
+- Active challenges.
+
+Charts:
+- Applications over time.
+- Startup industry distribution.
+- Application status distribution.
+- Judge evaluation performance.
+- Submission trends.
+
+Recent activity:
+- New registrations.
+- Latest submissions.
+- Pending assignments.
+- Recent evaluations.
+- Upcoming deadlines.
+
+Use real database information.
+
+### Admin Page 2: User Management
+
+Route: /admin/users
+
+Allow administrators to:
+- View users.
+- Search and filter users.
+- Filter by role.
+- Invite judges.
+- Create judge accounts.
+- Activate/deactivate accounts.
+- Suspend users.
+- Review user activity.
+
+Do not allow students or judges to create administrator accounts.
+
+Role changes must be protected and audited.
+
+### Admin Page 3: Startup Management
+
+Route: /admin/startups
+
+Include:
+- View all startups.
+- Verify startup details.
+- View founders and team members.
+- Review uploaded documents.
+- Flag suspicious submissions.
+- Manage startup records.
+
+### Admin Page 4: Challenge Management
+
+Route: /admin/challenges
+
+Allow administrators to create, edit, publish, close, and archive challenges.
+
+Challenge creation fields:
+- Title.
+- Organization or department.
+- Category.
+- Description.
+- Problem statement.
+- Expected solution.
+- Required skills.
+- Eligibility.
+- Maximum team size.
+- Opening date.
+- Deadline.
+- Rewards.
+- Supporting documents.
+- Evaluation configuration.
+
+Challenge states:
+DRAFT, UPCOMING, ACTIVE, CLOSED, ARCHIVED.
+
+Published challenges should automatically appear on the student Explore Challenges page.
+
+### Admin Page 5: Application Management
+
+Route: /admin/applications
+
+Admin can:
+- View every submitted application.
+- Search and filter applications.
+- View startup details.
+- Check eligibility.
+- Request revisions.
+- Assign judges.
+- Track evaluations.
+- Shortlist startups.
+- Reject applications.
+- Publish decisions.
+
+Application details:
+
+/admin/applications/:id
+
+Show full submission details, founders, startup, challenge, files, assigned judges, evaluation summaries, admin notes, and status history.
+
+### Admin Page 6: Judge Management
+
+Route: /admin/judges
+
+Allow:
+- Judge creation.
+- Judge invitations.
+- Expertise configuration.
+- Judge profile management.
+- Workload monitoring.
+- Account activation/deactivation.
+- Evaluation progress tracking.
+
+### Admin Page 7: Judge Assignments
+
+Route: /admin/assignments
+
+Allow:
+- Assign one or multiple judges.
+- Reassign judges.
+- Set evaluation deadlines.
+- Monitor workload.
+- Record conflict-of-interest declarations.
+
+Support multiple independent judges for each application.
+
+### Admin Page 8: Evaluation Management
+
+Route: /admin/evaluations
+
+Display:
+- Pending evaluations.
+- Completed evaluations.
+- Average scores.
+- Judge-wise performance.
+- Score distributions.
+- Evaluation disagreements.
+
+Admin should be able to review and reopen evaluations when justified.
+
+### Admin Page 9: Pitch Sessions
+
+Route: /admin/sessions
+
+Schedule:
+- Startup presentations.
+- Assigned judges.
+- Date and time.
+- Duration.
+- Meeting links.
+- Venue.
+- Session instructions.
+
+### Admin Page 10: Results and Leaderboard
+
+Route: /admin/results
+
+Allow:
+- Comparing scores.
+- Ranking startups.
+- Applying selection rules.
+- Finalizing winners.
+- Publishing official results.
+- Exporting results.
+
+Only authorized admins can publish official results.
+
+### Admin Page 11: Coins and Rewards
+
+Route: /admin/rewards
+
+Manage coin rules, achievements, reward history, and leaderboard configuration.
+
+### Admin Page 12: Announcements
+
+Route: /admin/announcements
+
+Allow targeted announcements to all users, students, judges, or challenge participants.
+
+### Admin Page 13: Reports and Analytics
+
+Route: /admin/reports
+
+Provide reports on:
+- Applications.
+- Startups.
+- Participation.
+- Industry distribution.
+- Evaluation performance.
+- Shortlisting.
+- Competition results.
+
+Support CSV and PDF exports.
+
+### Admin Page 14: Audit Logs
+
+Route: /admin/audit-logs
+
+Record:
+- Login attempts.
+- User suspensions.
+- Role changes.
+- Judge assignments.
+- Evaluation submissions.
+- Application status changes.
+- Result publication.
+- Coin transactions.
+- Administrative configuration changes.
+
+Every log should record the actor, action, target, timestamp, and relevant metadata.
+
+### Admin Page 15: Platform Settings
+
+Route: /admin/settings
+
+Include platform information, competition settings, evaluation criteria, email configuration, notification settings, and security settings.
+
+Sensitive settings should require appropriate permissions and, where necessary, re-authentication.
+
+---
+
+# 4. PUBLIC WEBSITE
+
+Build the following public pages:
+
+- Home: /
+- About: /about
+- How It Works: /how-it-works
+- Challenges: /challenges
+- Challenge Details: /challenges/:id
+- Features: /features
+- Leaderboard: /leaderboard
+- FAQ: /faq
+- Contact: /contact
+- Login: /login
+- Register: /register
+- Forgot Password: /forgot-password
+- Reset Password: /reset-password/:token
+- Unauthorized: /unauthorized
+
+Homepage sections:
+
+1. Modern navigation bar.
+2. Hero section with the heading:
+
+   "Turn Your Startup Idea Into Reality."
+
+3. Short PitchArena introduction.
+4. Call-to-action buttons.
+5. Featured startup challenges.
+6. How PitchArena Works.
+7. Platform statistics.
+8. Key features.
+9. Startup success stories.
+10. Final CTA.
+11. Professional footer.
+
+Make the landing page visually impressive and conversion-focused.
+
+---
+
+# 5. ROLE-BASED AUTHENTICATION AND SECURITY
+
+Implement strict role-based access control.
+
+There must be one common authentication system and three separate protected experiences.
+
+Registration must automatically assign:
+
+role = STUDENT
+
+Never accept a user-supplied role from the public registration request.
+
+Judge accounts must be created or invited by an authorized administrator.
+
+Admin accounts must be provisioned through a secure seed or controlled setup process.
+
+Login workflow:
+
+1. User submits email and password.
+2. Backend retrieves the account from MySQL.
+3. bcrypt verifies the password.
+4. Backend checks account status and email verification requirements.
+5. Backend creates an access token.
+6. Secure refresh-token mechanism maintains the session.
+7. Frontend redirects based on the authenticated role.
+
+Redirects:
+
+STUDENT → /student/dashboard
+
+JUDGE → /judge/dashboard
+
+ADMIN → /admin/dashboard
+
+Implement:
+
+- authenticateToken middleware.
+- authorizeRole middleware.
+- Ownership verification.
+- Protected React routes.
+- Secure cookies.
+- Refresh token rotation.
+- Password reset.
+- Email verification.
+- Login rate limiting.
+- Failed login protection.
+- Audit logs.
+- Input validation.
+- SQL injection protection.
+- CSRF protection appropriate to cookie-based authentication.
+- Secure error handling.
+
+IMPORTANT SECURITY TESTS:
+
+1. Student must not access /admin/dashboard.
+2. Student must not call admin APIs.
+3. Judge must not access student or admin dashboards.
+4. Judge must not access unassigned applications.
+5. Student must not access another student's private application.
+6. Judge must not read another judge's confidential evaluation.
+7. Unauthenticated users must not access private endpoints.
+8. Suspended accounts must not authenticate.
+9. Users must not change their role through profile APIs.
+10. Frontend protection must never replace backend authorization.
+
+Return HTTP 401 for unauthenticated access and HTTP 403 for authenticated but unauthorized access, or HTTP 404 when hiding resource existence is appropriate.
+
+Never trust role information supplied by the frontend.
+
+---
+
+# 6. DATABASE ARCHITECTURE – MYSQL
+
+Create a properly normalized relational database named:
+
+pitcharena_db
+
+Main tables:
+
+1. users
+2. student_profiles
+3. judge_profiles
+4. startups
+5. teams
+6. team_members
+7. challenges
+8. applications
+9. application_files
+10. judge_assignments
+11. evaluations
+12. evaluation_criteria
+13. evaluation_scores
+14. pitch_sessions
+15. notifications
+16. announcements
+17. coin_transactions
+18. achievements
+19. user_achievements
+20. audit_logs
+21. refresh_tokens
+22. password_reset_tokens
+23. email_verification_tokens
+24. startup_roadmaps
+25. roadmap_milestones
+26. ai_analyses
+27. pitch_documents
+
+Additional tables for future government innovation support:
+
+28. departments
+29. pilots
+30. pilot_milestones
+31. kpis
+32. kpi_measurements
+33. procurement_records
+
+DATABASE REQUIREMENTS:
+
+- Use primary keys and foreign keys.
+- Add appropriate indexes.
+- Enforce unique email addresses.
+- Use appropriate constraints.
+- Use transactions for multi-step operations.
+- Use created_at and updated_at timestamps.
+- Use soft deletion or archival where appropriate.
+- Preserve application and evaluation history.
+- Store passwords as bcrypt hashes.
+- Use parameterized SQL queries.
+
+Use one users table with role identifiers:
+
+STUDENT, JUDGE, ADMIN.
+
+Store role-specific profile information in separate profile tables.
+
+Separate startups from applications because one startup can apply to multiple challenges.
+
+Separate judge assignments from evaluations because multiple judges can evaluate one application.
+
+Maintain a proper audit trail.
+
+Provide:
+- schema.sql
+- seed.sql
+- database connection file
+- migration scripts or versioned schema updates.
+
+---
+
+# 7. BACKEND ARCHITECTURE
+
+Use a modular Express architecture.
+
+Suggested structure:
+
+backend/
+  config/
+    db.js
+    environment.js
+
+  controllers/
+    authController.js
+    studentController.js
+    startupController.js
+    challengeController.js
+    applicationController.js
+    judgeController.js
+    evaluationController.js
+    adminController.js
+    notificationController.js
+    rewardController.js
+    aiController.js
+
+  middleware/
+    authenticateToken.js
+    authorizeRole.js
+    validateRequest.js
+    errorHandler.js
+    uploadMiddleware.js
+
+  models/
+    userModel.js
+    startupModel.js
+    applicationModel.js
+    challengeModel.js
+    evaluationModel.js
+
+  routes/
+    authRoutes.js
+    studentRoutes.js
+    startupRoutes.js
+    challengeRoutes.js
+    applicationRoutes.js
+    judgeRoutes.js
+    evaluationRoutes.js
+    adminRoutes.js
+    notificationRoutes.js
+    rewardRoutes.js
+    aiRoutes.js
+
+  services/
+    emailService.js
+    notificationService.js
+    scoringService.js
+    applicationService.js
+    aiService.js
+    rewardService.js
+
+  utils/
+    generateToken.js
+    responseHandler.js
+
+  app.js
+  server.js
+
+Use separation of concerns.
+
+Controllers should handle HTTP requests.
+
+Services should handle business logic.
+
+Models should handle database queries.
+
+Middleware should enforce authentication, authorization, and validation.
+
+Use consistent JSON response formats and centralized error handling.
+
+---
+
+# 8. API ENDPOINTS
+
+Implement REST APIs.
+
+AUTH:
+
+POST /api/auth/register
+POST /api/auth/login
+POST /api/auth/refresh
+POST /api/auth/logout
+GET /api/auth/me
+POST /api/auth/forgot-password
+POST /api/auth/reset-password
+
+STUDENT:
+
+GET /api/student/dashboard
+GET /api/student/profile
+PUT /api/student/profile
+GET /api/student/startups
+POST /api/student/startups
+GET /api/student/startups/:id
+PUT /api/student/startups/:id
+GET /api/student/challenges
+GET /api/student/applications
+POST /api/student/applications
+GET /api/student/applications/:id
+GET /api/student/notifications
+GET /api/student/rewards
+GET /api/student/leaderboard
+
+JUDGE:
+
+GET /api/judge/dashboard
+GET /api/judge/applications
+GET /api/judge/applications/:id
+POST /api/judge/evaluations
+PUT /api/judge/evaluations/:id
+GET /api/judge/evaluations
+GET /api/judge/sessions
+GET /api/judge/notifications
+
+ADMIN:
+
+GET /api/admin/dashboard
+GET /api/admin/users
+POST /api/admin/judges
+PATCH /api/admin/users/:id/status
+GET /api/admin/startups
+POST /api/admin/challenges
+PUT /api/admin/challenges/:id
+GET /api/admin/applications
+PATCH /api/admin/applications/:id/status
+POST /api/admin/assignments
+GET /api/admin/evaluations
+POST /api/admin/sessions
+POST /api/admin/results/publish
+GET /api/admin/reports
+GET /api/admin/audit-logs
+POST /api/admin/announcements
+
+REWARDS:
+
+GET /api/rewards/leaderboard
+GET /api/rewards/transactions
+
+AI:
+
+POST /api/ai/analyze-idea
+POST /api/ai/generate-roadmap
+POST /api/ai/improve-pitch
+POST /api/ai/match-challenges
+POST /api/ai/market-research
+
+Add pagination, filtering, validation, and access control to appropriate endpoints.
+
+---
+
+# 9. FILE UPLOAD SYSTEM
+
+Students must be able to upload:
+
+- Startup logos.
+- Pitch decks.
+- Business plans.
+- Supporting PDFs.
+- Prototype screenshots.
+
+Use Multer and secure object storage.
+
+Store file metadata in MySQL.
+
+Implement:
+- File size limits.
+- MIME validation.
+- Unique storage keys.
+- Authorized uploads and downloads.
+- Short-lived signed download URLs.
+- Private file access.
+- File ownership verification.
+
+Never expose private startup documents through unrestricted public URLs.
+
+---
+
+# 10. NOTIFICATION SYSTEM
+
+Implement a centralized notification service.
+
+Events should generate in-app notifications and appropriate email notifications.
+
+Examples:
+
+- Successful registration.
+- Application submitted.
+- New application received.
+- Judge assigned.
+- Evaluation deadline approaching.
+- Evaluation completed.
+- Revision requested.
+- Startup shortlisted.
+- Pitch scheduled.
+- Final result published.
+- Reward received.
+
+Use MySQL to store notifications.
+
+Use Nodemailer or a configured transactional email provider.
+
+---
+
+# 11. EVALUATION ENGINE
+
+Create a configurable weighted evaluation engine.
+
+Default criteria:
+
+Innovation: 20%
+Problem relevance: 15%
+Technical feasibility: 20%
+Market potential: 15%
+Scalability: 15%
+Team capability: 10%
+Presentation quality: 5%
+
+Total: 100%.
+
+Judges score each criterion out of 10.
+
+Calculate final score on the backend.
+
+Allow multiple judges to independently evaluate the same startup.
+
+Calculate:
+- Individual judge score.
+- Average application score.
+- Score variation.
+- Evaluation completion percentage.
+
+Suggested configurable thresholds:
+
+85–100: Strong shortlist recommendation.
+
+70–84: Further consideration.
+
+Below 70: Not recommended.
+
+These thresholds are recommendations only. Admin should be able to configure the official selection rules.
+
+Never automatically convert a score into an official result without the configured approval workflow.
+
+---
+
+# 12. STANDOUT FEATURES – MAKE PITCHARENA DIFFERENT
+
+The application should feel like a complete startup ecosystem rather than an ordinary college project portal.
+
+Prioritize the following features.
+
+## FEATURE 1: AI STARTUP READINESS SCORE
+
+Generate a startup readiness score from 0 to 100 based on structured information such as:
+
+- Problem clarity.
+- Solution quality.
+- Market understanding.
+- Business model.
+- Innovation.
+- Technical feasibility.
+- Team readiness.
+- Validation progress.
+
+Display a score visualization and recommendations.
+
+Allow founders to improve their score by completing relevant milestones.
+
+Clearly distinguish AI-generated readiness assessments from official judge scores.
+
+## FEATURE 2: AI IDEA ANALYZER
+
+A founder enters an idea.
+
+AI generates:
+
+- Problem analysis.
+- Proposed solution analysis.
+- Target customer suggestions.
+- Industry category.
+- Potential business models.
+- Strengths.
+- Weaknesses.
+- Development suggestions.
+- Initial validation checklist.
+
+Save analyses to the user's account.
+
+## FEATURE 3: SMART CHALLENGE MATCHING
+
+Analyze a startup profile and recommend suitable active challenges.
+
+Match based on:
+- Industry.
+- Technology.
+- Problem statement.
+- Required skills.
+- Eligibility.
+- Startup category.
+
+Display a match percentage with understandable reasons.
+
+Do not present a match percentage as a guarantee of eligibility.
+
+## FEATURE 4: SHARK TANK-STYLE EVALUATION EXPERIENCE
+
+Create a professional investor-style evaluation interface.
+
+Display:
+- Startup presentation.
+- Problem and solution.
+- Market potential.
+- Business model.
+- Scalability.
+- Innovation.
+- Judge scores.
+- Recommendations.
+
+Provide a structured feedback system.
+
+## FEATURE 5: STARTUP DEVELOPMENT TRACKER
+
+Create a visual startup journey:
+
+IDEA → VALIDATION → MVP → TESTING → PITCH → SHORTLIST → PILOT → SCALE-UP.
+
+Allow founders to track progress and maintain milestone records.
+
+## FEATURE 6: TRANSPARENT EVALUATION
+
+Provide a fair and traceable evaluation system.
+
+Show students the feedback that administrators authorize for release.
+
+Keep confidential judge notes private.
+
+Maintain independent evaluation records and a complete audit trail.
+
+## FEATURE 7: FOUNDER LEADERBOARD
+
+Create rankings based on configurable and transparent criteria.
+
+Include:
+- Most innovative startups.
+- Top-rated startups.
+- Most active founders.
+- Competition winners.
+- Highest milestone completion.
+
+Avoid ranking users using undisclosed or arbitrary AI scores.
+
+## FEATURE 8: DIGITAL ACHIEVEMENTS
+
+Create badges:
+
+- First Pitch.
+- Innovation Starter.
+- Market Explorer.
+- MVP Builder.
+- Rising Founder.
+- Top 10 Startup.
+- Competition Winner.
+- Pilot Achiever.
+
+## FEATURE 9: PITCH DECK ASSISTANT
+
+Help students structure professional pitch decks.
+
+Suggested slides:
+
+1. Problem.
+2. Solution.
+3. Product.
+4. Market opportunity.
+5. Business model.
+6. Competitor analysis.
+7. Technology.
+8. Traction and validation.
+9. Team.
+10. Future roadmap.
+
+Allow content editing and export functionality.
+
+## FEATURE 10: MENTORSHIP AND FEEDBACK
+
+Prepare an extensible mentorship module.
+
+Allow authorized mentors to provide:
+- Suggestions.
+- Improvement notes.
+- Startup development guidance.
+- Milestone feedback.
+
+Keep mentor access separate from judge and admin permissions.
+
+---
+
+# 13. GOVERNMENT INNOVATION AND SIH WORKFLOW
+
+Design the application so it can support government innovation challenges.
+
+Workflow:
+
+1. Government challenge creation.
+2. Outcome and KPI definition.
+3. Startup discovery.
+4. Eligibility screening.
+5. Expert evaluation.
+6. Shortlisting.
+7. Pilot or sandbox.
+8. Milestone management.
+9. KPI measurement.
+10. Independent validation.
+11. Pilot outcome report.
+12. Successful pilot scale-up or unsuccessful pilot closure.
+
+For the initial version, administrators manage these processes.
+
+Students should be able to track their own approved pilot milestones.
+
+Keep the architecture extensible for a future government department interface.
+
+---
+
+# 14. FRONTEND PROJECT STRUCTURE
+
+Create the following structure:
+
+frontend/
+  public/
+
+  src/
+    assets/
+
+    components/
+      common/
+      student/
+      judge/
+      admin/
+
+    layouts/
+      PublicLayout.jsx
+      StudentLayout.jsx
+      JudgeLayout.jsx
+      AdminLayout.jsx
+
+    pages/
+      public/
+      student/
+      judge/
+      admin/
+
+    context/
+      AuthContext.jsx
+
+    services/
+      api.js
+      authService.js
+      studentService.js
+      judgeService.js
+      adminService.js
+
+    hooks/
+
+    routes/
+      AppRoutes.jsx
+
+    utils/
+
+    App.jsx
+    main.jsx
+
+Use React Router for navigation.
+
+Create separate layouts for the three dashboards.
+
+Use reusable components for:
+- Sidebar.
+- Navbar.
+- Cards.
+- Tables.
+- Modals.
+- Forms.
+- Search.
+- Filters.
+- Pagination.
+- Notifications.
+- Status badges.
+- Charts.
+- Loading states.
+- Empty states.
+
+Do not duplicate components unnecessarily.
+
+---
+
+# 15. UI/UX DESIGN REQUIREMENTS
+
+The design should feel like a premium, modern SaaS startup platform.
+
+DESIGN DIRECTION:
+
+- Minimal dark interface.
+- Professional and futuristic.
+- Clean typography.
+- Consistent spacing.
+- Subtle gradients.
+- Rounded cards.
+- Soft shadows.
+- Refined borders.
+- Smooth transitions.
+- Minimal but meaningful animations.
+
+Suggested palette:
+
+Primary background: #0B0F19
+
+Secondary background: #111827
+
+Card background: #151C2C
+
+Primary accent: #7C5CFC
+
+Secondary accent: #22D3EE
+
+Success: #22C55E
+
+Warning: #F59E0B
+
+Danger: #EF4444
+
+Primary text: #F8FAFC
+
+Secondary text: #94A3B8
+
+Use colors consistently rather than applying every accent everywhere.
+
+Design requirements:
+
+1. Sidebar navigation for authenticated dashboards.
+2. Responsive mobile navigation.
+3. Consistent navbar.
+4. Clean dashboard cards.
+5. Modern data tables.
+6. Professional charts.
+7. Clear application status indicators.
+8. Beautiful startup cards.
+9. Functional modal dialogs.
+10. Consistent form styling.
+11. Accessible contrast and focus states.
+12. Responsive desktop, tablet, and mobile layouts.
+
+Use skeleton loaders where appropriate.
+
+Create meaningful empty states when there are no startups, applications, evaluations, or notifications.
+
+Every button must have a meaningful action.
+
+Every form must have validation.
+
+Do not leave nonfunctional placeholder buttons.
+
+---
+
+# 16. FRONTEND ROUTING
+
+Implement role-protected route groups.
+
+PUBLIC:
+/
+ /about
+ /how-it-works
+ /challenges
+ /challenges/:id
+ /features
+ /leaderboard
+ /faq
+ /contact
+ /login
+ /register
+
+STUDENT:
+ /student/dashboard
+ /student/challenges
+ /student/challenges/:id
+ /student/startups
+ /student/startups/:id
+ /student/applications
+ /student/applications/:id
+ /student/team
+ /student/ai-assistant
+ /student/pitch-studio
+ /student/roadmap
+ /student/notifications
+ /student/rewards
+ /student/leaderboard
+ /student/profile
+
+JUDGE:
+ /judge/dashboard
+ /judge/applications
+ /judge/applications/:id
+ /judge/evaluate/:id
+ /judge/shortlisted
+ /judge/sessions
+ /judge/history
+ /judge/notifications
+ /judge/profile
+
+ADMIN:
+ /admin/dashboard
+ /admin/users
+ /admin/startups
+ /admin/challenges
+ /admin/applications
+ /admin/applications/:id
+ /admin/judges
+ /admin/assignments
+ /admin/evaluations
+ /admin/sessions
+ /admin/results
+ /admin/rewards
+ /admin/announcements
+ /admin/reports
+ /admin/audit-logs
+ /admin/settings
+
+Implement role-based route guards.
+
+Never rely only on frontend route guards for security.
+
+---
+
+# 17. TESTING REQUIREMENTS
+
+Test the application module by module.
+
+Use Hoppscotch to test all APIs.
+
+Test:
+- Registration.
+- Login.
+- Logout.
+- Token refresh.
+- Role permissions.
+- Startup creation.
+- Challenge publication.
+- Application submission.
+- Judge assignment.
+- Evaluation.
+- Result publication.
+- Notifications.
+- File uploads.
+- Rewards.
+
+Perform security tests:
+
+- Unauthorized route access.
+- Direct API access.
+- IDOR and ownership attacks.
+- SQL injection.
+- Invalid file uploads.
+- Token expiration.
+- Suspended accounts.
+- Duplicate submissions.
+- Invalid status transitions.
+- Unauthorized role changes.
+
+Use parameterized queries and transactions.
+
+Create realistic test accounts for all three roles.
+
+---
+
+# 18. DEVELOPMENT ORDER
+
+Build the application in the following sequence.
+
+PHASE 1:
+Project setup, dependencies, Git configuration, and folder structure.
+
+PHASE 2:
+MySQL database design, schema creation, and seed data.
+
+PHASE 3:
+Authentication, login, registration, JWT, and role-based security.
+
+PHASE 4:
+Public website and authentication pages.
+
+PHASE 5:
+Student dashboard, profile, startups, teams, and challenges.
+
+PHASE 6:
+Application submission and document uploads.
+
+PHASE 7:
+Judge dashboard, assignments, and evaluation workspace.
+
+PHASE 8:
+Admin dashboard, user management, challenges, and applications.
+
+PHASE 9:
+Judge assignment management and weighted scoring.
+
+PHASE 10:
+Notifications, pitch scheduling, results, and leaderboard.
+
+PHASE 11:
+Coins, achievements, and rewards.
+
+PHASE 12:
+AI startup assistant, idea analysis, and challenge matching.
+
+PHASE 13:
+Startup roadmap and government innovation workflow.
+
+PHASE 14:
+Complete security testing and bug fixing.
+
+PHASE 15:
+Production deployment and documentation.
+
+---
+
+# 19. REQUIRED PROJECT DELIVERABLES
+
+The final project must contain:
+
+1. Complete React frontend.
+2. Complete Express backend.
+3. MySQL database schema.
+4. SQL seed files.
+5. Authentication and role-based access control.
+6. Student dashboard.
+7. Judge dashboard.
+8. Admin dashboard.
+9. Public website.
+10. Startup submission workflow.
+11. Challenge management.
+12. Judge assignment system.
+13. Evaluation and scoring engine.
+14. Results management.
+15. Notification system.
+16. File upload system.
+17. AI feature integration.
+18. Rewards and leaderboard.
+19. API documentation.
+20. README.md.
+21. .env.example.
+22. Database setup instructions.
+23. Local development instructions.
+24. Deployment instructions.
+25. Test cases and test accounts for local development.
+
+Create separate README instructions for frontend and backend if necessary.
+
+Provide a complete list of environment variables.
+
+---
+
+# 20. IMPORTANT DEVELOPMENT INSTRUCTIONS FOR THE AI AGENT
+
+Follow these instructions throughout the development process.
+
+1. First analyze the entire project specification.
+2. Design the architecture before writing code.
+3. Generate the complete project folder structure.
+4. Implement the database schema before dependent APIs.
+5. Implement authentication and authorization before dashboards.
+6. Build each module in the specified order.
+7. Connect every page to real backend APIs.
+8. Use real MySQL records rather than hardcoded frontend arrays.
+9. Implement proper loading, error, success, and empty states.
+10. Validate every form.
+11. Make all navigation functional.
+12. Do not skip backend implementation.
+13. Do not leave important features as static demonstrations.
+14. Do not create fake login functionality.
+15. Do not expose API keys or credentials.
+16. Maintain consistent naming conventions.
+17. Avoid unnecessary code duplication.
+18. Make the application responsive.
+19. Test each completed module before moving to the next.
+20. Fix integration issues rather than hiding them with mock data.
+
+If an external service such as email, AI, or cloud storage requires credentials, implement its integration correctly using environment variables and provide clear setup instructions.
+
+If a service is not configured, show a meaningful configuration message rather than pretending the integration succeeded.
+
+Use migrations or versioned SQL scripts so that subsequent database changes do not destroy existing user data.
+
+Maintain backwards compatibility when adding new modules.
+
+Do not generate a giant collection of disconnected files without verifying that imports, routes, API contracts, and database relationships work together.
+
+---
+
+# 21. DEFINITION OF A COMPLETED APPLICATION
+
+PitchArena should be considered functional only when the following complete scenario works:
+
+STEP 1:
+A student registers and logs into PitchArena.
+
+STEP 2:
+The student creates a startup profile.
+
+STEP 3:
+The student explores published challenges.
+
+STEP 4:
+The student submits the startup to a challenge.
+
+STEP 5:
+The application is saved in MySQL with SUBMITTED status.
+
+STEP 6:
+The administrator logs in and sees the new application.
+
+STEP 7:
+The administrator assigns two judges to the application.
+
+STEP 8:
+Both judges log in and see their assigned application.
+
+STEP 9:
+Both judges independently review and evaluate the startup.
+
+STEP 10:
+The backend calculates the weighted evaluation scores.
+
+STEP 11:
+The administrator reviews the evaluations and makes an official decision.
+
+STEP 12:
+The administrator publishes the result.
+
+STEP 13:
+The student receives a notification and can view the published result.
+
+STEP 14:
+The student can view authorized feedback and continue tracking the startup journey.
+
+STEP 15:
+Every sensitive action is protected and recorded appropriately.
+
+Also verify that:
+- Students cannot enter judge or admin panels.
+- Judges cannot enter student or admin panels.
+- Admins have authorized management access.
+- Users cannot access records belonging to other users without permission.
+- Direct API requests enforce the same permissions as frontend navigation.
+
+---
+
+# FINAL INSTRUCTION
+
+Build PitchArena as a complete, scalable, professional startup innovation platform.
+
+Prioritize functional correctness, security, database integrity, clean architecture, and excellent user experience.
+
+The three role-based interfaces must feel like distinct professional products connected to one intelligent platform.
+
+Do not sacrifice working functionality for visual appearance.
+
+Begin by presenting the architecture, folder structure, database schema, and development plan. Then proceed with implementation in the specified order.
+
+If the environment has limited execution or output capacity, work in small, complete modules, preserve existing files, and clearly report what has been implemented and what remains.
+
+The ultimate goal is a fully functional PitchArena platform that can be run locally, tested through Hoppscotch, demonstrated to college evaluators, and eventually deployed for real founders, judges, and administrators.
+
+**Build PitchArena. Turn ideas into opportunities.**
