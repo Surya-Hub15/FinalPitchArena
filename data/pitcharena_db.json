@@ -1,0 +1,983 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "founder@pitcharena.dev",
+      "password_hash": "$2b$10$hYj9Niyo4idkvSvbWJs8MuScAsw3xnQpOAyIx9ZTIK5s/foVd3XbW",
+      "role": "STUDENT",
+      "status": "ACTIVE",
+      "is_email_verified": true,
+      "created_at": "2026-10-11T05:28:39.288Z"
+    },
+    {
+      "id": 2,
+      "email": "judge@pitcharena.dev",
+      "password_hash": "$2b$10$hYj9Niyo4idkvSvbWJs8MuScAsw3xnQpOAyIx9ZTIK5s/foVd3XbW",
+      "role": "JUDGE",
+      "status": "ACTIVE",
+      "is_email_verified": true,
+      "created_at": "2026-09-11T05:28:39.289Z"
+    },
+    {
+      "id": 3,
+      "email": "dr.chen@pitcharena.dev",
+      "password_hash": "$2b$10$hYj9Niyo4idkvSvbWJs8MuScAsw3xnQpOAyIx9ZTIK5s/foVd3XbW",
+      "role": "JUDGE",
+      "status": "ACTIVE",
+      "is_email_verified": true,
+      "created_at": "2026-09-26T05:28:39.289Z"
+    },
+    {
+      "id": 4,
+      "email": "admin@pitcharena.dev",
+      "password_hash": "$2b$10$hYj9Niyo4idkvSvbWJs8MuScAsw3xnQpOAyIx9ZTIK5s/foVd3XbW",
+      "role": "ADMIN",
+      "status": "ACTIVE",
+      "is_email_verified": true,
+      "created_at": "2026-08-12T05:28:39.289Z"
+    },
+    {
+      "id": 5,
+      "email": "priya.sharma@pitcharena.dev",
+      "password_hash": "$2b$10$hYj9Niyo4idkvSvbWJs8MuScAsw3xnQpOAyIx9ZTIK5s/foVd3XbW",
+      "role": "STUDENT",
+      "status": "ACTIVE",
+      "is_email_verified": true,
+      "created_at": "2026-10-26T05:28:39.289Z"
+    }
+  ],
+  "student_profiles": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "full_name": "Alex Vance",
+      "avatar_url": "/src/assets/images/avatar_student_founder_1794284948622.jpg",
+      "phone": "+1 (555) 234-5678",
+      "college_name": "Metropolitan Institute of Technology",
+      "department": "Computer Science & AI",
+      "academic_year": "Senior (Year 4)",
+      "bio": "Founder building sustainable IoT grid infrastructure. Passionate about hardware-software co-design and edge AI.",
+      "github_url": "https://github.com/alexvance-mit",
+      "linkedin_url": "https://linkedin.com/in/alex-vance-mit",
+      "skills": [
+        "Embedded Systems",
+        "PyTorch",
+        "React",
+        "Node.js",
+        "Hardware Prototyping"
+      ],
+      "coins_balance": 350
+    },
+    {
+      "id": 2,
+      "user_id": 5,
+      "full_name": "Priya Sharma",
+      "avatar_url": "",
+      "phone": "+1 (555) 876-5432",
+      "college_name": "National Innovation University",
+      "department": "Biomedical Engineering",
+      "academic_year": "Graduate (Year 1)",
+      "bio": "Biomedical engineer developing non-invasive spectral glucose monitoring devices.",
+      "github_url": "https://github.com/priyabiomed",
+      "linkedin_url": "https://linkedin.com/in/priyasharma-bio",
+      "skills": [
+        "Signal Processing",
+        "Sensors",
+        "Clinical Validation",
+        "Python"
+      ],
+      "coins_balance": 180
+    }
+  ],
+  "judge_profiles": [
+    {
+      "id": 1,
+      "user_id": 2,
+      "full_name": "Elena Rostova",
+      "avatar_url": "/src/assets/images/avatar_judge_expert_1794284948236.jpg",
+      "phone": "+1 (555) 901-2345",
+      "organization": "Apex Horizon Ventures",
+      "designation": "General Partner & DeepTech Lead",
+      "domain_expertise": [
+        "CleanTech",
+        "IoT & Edge Computing",
+        "B2B SaaS",
+        "Hardware Scaling"
+      ],
+      "years_experience": 14,
+      "bio": "Former founder turned investor. Led $45M in seed and Series A rounds across industrial IoT and smart mobility.",
+      "max_assignments_allowed": 12
+    },
+    {
+      "id": 2,
+      "user_id": 3,
+      "full_name": "Dr. Arthur Chen",
+      "avatar_url": "",
+      "phone": "+1 (555) 345-6789",
+      "organization": "Cambridge DeepTech Institute",
+      "designation": "Associate Professor & Incubator Fellow",
+      "domain_expertise": [
+        "Artificial Intelligence",
+        "HealthTech",
+        "Medical Robotics",
+        "Algorithm Design"
+      ],
+      "years_experience": 18,
+      "bio": "Published author in Nature Machine Intelligence. Holds 6 patents in automated biomarker detection.",
+      "max_assignments_allowed": 8
+    }
+  ],
+  "startups": [
+    {
+      "id": 1,
+      "founder_id": 1,
+      "name": "TerraPulse IoT",
+      "slug": "terrapulse-iot",
+      "logo_url": "",
+      "tagline": "Autonomous AI-driven energy optimization for commercial urban skyscrapers.",
+      "industry": "CleanTech & IoT",
+      "stage": "PROTOTYPE",
+      "problem_statement": "Commercial skyscrapers waste 30% of their annual HVAC energy due to static schedule-based chiller operations that ignore live occupant density and solar radiation trends.",
+      "proposed_solution": "TerraPulse combines plug-and-play BACnet wireless sensor pods with an edge neural controller that modulates chiller valves in real time, cutting cooling bills by 28%.",
+      "target_market": "Class A & B commercial property asset managers, corporate office campuses, and municipal headquarters ($14B SAM).",
+      "business_model": "Hardware lease + $450/month per building SaaS subscription + 15% shared energy savings bonus.",
+      "revenue_model": "Recurring B2B subscription tier with hardware installation fee.",
+      "competitors": "Johnson Controls Metasys, Honeywell Forge, Siemens Desigo.",
+      "usp": "Installs in under 3 hours without rewiring; achieves sub-12 month payback period through proprietary edge predictive control.",
+      "website_url": "https://terrapulse.io",
+      "pitch_deck_url": "/uploads/terrapulse_deck_v3.pdf",
+      "readiness_score": 84,
+      "is_verified": true,
+      "created_at": "2026-10-13T05:28:39.289Z"
+    },
+    {
+      "id": 2,
+      "founder_id": 5,
+      "name": "MediScan Vision",
+      "slug": "mediscan-vision",
+      "logo_url": "",
+      "tagline": "Edge AI pulmonary screening for rural community health clinics.",
+      "industry": "HealthTech & AI",
+      "stage": "MVP",
+      "problem_statement": "Over 80% of primary health centers in semi-urban regions have X-ray machines but no radiologist on staff, causing lethal delays in diagnosing pneumonia and tuberculosis.",
+      "proposed_solution": "A ruggedized 8-inch tablet application that runs quantized convolutional vision models locally, scoring chest radiographs in under 4 seconds with 96.4% sensitivity.",
+      "target_market": "District health clinics, state medical procurement boards, and NGO medical relief missions ($8.5B TAM).",
+      "business_model": "Annual software licensing per health center ($1,200/year) + maintenance SLA.",
+      "revenue_model": "Direct B2G (Government) and B2B hospital network contracts.",
+      "competitors": "Qure.ai, Lunit INSIGHT, Enlitic.",
+      "usp": "Runs 100% offline without cellular data connection; optimized for sub-$150 Android hardware.",
+      "website_url": "https://mediscan.health",
+      "pitch_deck_url": "/uploads/mediscan_seed_deck.pdf",
+      "readiness_score": 79,
+      "is_verified": true,
+      "created_at": "2026-10-21T05:28:39.289Z"
+    }
+  ],
+  "teams": [
+    {
+      "id": 1,
+      "startup_id": 1,
+      "name": "TerraPulse Core Team"
+    },
+    {
+      "id": 2,
+      "startup_id": 2,
+      "name": "MediScan Clinical Team"
+    }
+  ],
+  "team_members": [
+    {
+      "id": 1,
+      "team_id": 1,
+      "user_id": 1,
+      "name": "Alex Vance",
+      "email": "founder@pitcharena.dev",
+      "role_title": "Founder & CEO (Hustler)",
+      "college": "Metropolitan Institute of Technology",
+      "skills": [
+        "Embedded Systems",
+        "Product Strategy",
+        "Venture Pitching"
+      ],
+      "invitation_status": "ACCEPTED"
+    },
+    {
+      "id": 2,
+      "team_id": 1,
+      "user_id": null,
+      "name": "Sarah Lin",
+      "email": "sarah.lin@alumni.mit.edu",
+      "role_title": "Chief Technology Officer (Hacker)",
+      "college": "Metropolitan Institute of Technology",
+      "skills": [
+        "Edge AI",
+        "Rust",
+        "BACnet Protocols"
+      ],
+      "invitation_status": "ACCEPTED"
+    },
+    {
+      "id": 3,
+      "team_id": 1,
+      "user_id": null,
+      "name": "Carlos Ruiz",
+      "email": "carlos.ruiz@design.edu",
+      "role_title": "Lead Product Designer (Designer)",
+      "college": "School of Industrial Design",
+      "skills": [
+        "UI/UX",
+        "Hardware Enclosure CAD",
+        "Figma"
+      ],
+      "invitation_status": "ACCEPTED"
+    }
+  ],
+  "challenges": [
+    {
+      "id": 1,
+      "created_by": 4,
+      "title": "Smart City Decarbonization & IoT Grid Challenge",
+      "slug": "smart-city-decarbonization-iot-2026",
+      "organization": "Urban Innovation Alliance",
+      "category": "CleanTech & IoT",
+      "description": "Design and deploy hardware-software solutions that reduce municipal commercial energy consumption and optimize building load peaks.",
+      "problem_statement": "Modern metropolitan commercial buildings consume up to 42% of municipal electrical grid output during daylight peak hours, resulting in excessive carbon penalties and distribution strain.",
+      "expected_solution": "Autonomous IoT telemetry units paired with edge neural predictors that dynamically modulate HVAC and chiller cycles without compromising occupant comfort.",
+      "eligibility": "Open to university students and early-stage startup teams with functional prototype proof.",
+      "required_skills": [
+        "IoT Architecture",
+        "Edge Computing",
+        "HVAC Protocols",
+        "Time-series Forecasting"
+      ],
+      "max_team_size": 5,
+      "prize_pool": "$25,000 Grant + Pilot Deployment",
+      "coins_reward": 250,
+      "status": "ACTIVE",
+      "start_date": "2026-10-01",
+      "deadline": "2026-12-15",
+      "created_at": "2026-10-01T05:28:39.289Z"
+    },
+    {
+      "id": 2,
+      "created_by": 4,
+      "title": "AI Clinical Diagnostic & Biomarker Screening Frontier",
+      "slug": "ai-clinical-diagnostic-frontier-2026",
+      "organization": "Global Health Consortium",
+      "category": "HealthTech & AI",
+      "description": "Harness multimodal vision and tabular health data to detect early-stage cardiopulmonary abnormalities in rural primary care centers.",
+      "problem_statement": "Rural healthcare clinics lack immediate access to specialist radiologists, leading to delays of 3 to 6 weeks in diagnosing treatable pulmonary conditions.",
+      "expected_solution": "Lightweight AI diagnostic triage software operating locally on low-cost tablet devices with offline inference capability.",
+      "eligibility": "Student founders and academic spin-offs with validated datasets.",
+      "required_skills": [
+        "Computer Vision",
+        "DICOM Standards",
+        "Embedded AI",
+        "Clinical Workflow"
+      ],
+      "max_team_size": 4,
+      "prize_pool": "$40,000 + Clinical Trial Sandbox",
+      "coins_reward": 300,
+      "status": "ACTIVE",
+      "start_date": "2026-10-15",
+      "deadline": "2026-12-30",
+      "created_at": "2026-10-16T05:28:39.289Z"
+    },
+    {
+      "id": 3,
+      "created_by": 4,
+      "title": "Fintech Inclusion & Micro-Merchant Liquidity",
+      "slug": "fintech-inclusion-micro-merchant-2026",
+      "organization": "Venture Capital Initiative",
+      "category": "Fintech & Web3",
+      "description": "Provide predictive cashflow underwriting and instant inventory micro-financing for unbanked neighborhood retail merchants.",
+      "problem_statement": "Micro-merchants lack formal credit histories and collateral, forcing them to borrow from predatory lenders at 35%+ APR.",
+      "expected_solution": "Alternative cash-flow credit scoring utilizing point-of-sale invoice receipts and daily SMS transaction trails.",
+      "eligibility": "All registered founder teams with working MVP.",
+      "required_skills": [
+        "Financial Underwriting",
+        "Payment APIs",
+        "Risk Modeling"
+      ],
+      "max_team_size": 5,
+      "prize_pool": "$20,000 Seed Investment",
+      "coins_reward": 200,
+      "status": "ACTIVE",
+      "start_date": "2026-11-01",
+      "deadline": "2027-01-15",
+      "created_at": "2026-10-31T05:28:39.289Z"
+    }
+  ],
+  "applications": [
+    {
+      "id": 1,
+      "challenge_id": 1,
+      "startup_id": 1,
+      "applicant_id": 1,
+      "current_round": 2,
+      "status": "SHORTLISTED",
+      "revision_notes": null,
+      "admin_notes": "Exceptional prototype evidence. Strong hardware demonstration and verified BACnet integration tests.",
+      "submitted_at": "2026-10-21T05:28:39.289Z",
+      "decision_published_at": "2026-11-05T05:28:39.289Z",
+      "created_at": "2026-10-21T05:28:39.289Z"
+    },
+    {
+      "id": 2,
+      "challenge_id": 2,
+      "startup_id": 2,
+      "applicant_id": 5,
+      "current_round": 1,
+      "status": "UNDER_REVIEW",
+      "revision_notes": null,
+      "admin_notes": "Under review by Dr. Chen and Elena Rostova. Awaiting clinical validation verification.",
+      "submitted_at": "2026-11-02T05:28:39.289Z",
+      "decision_published_at": null,
+      "created_at": "2026-11-02T05:28:39.289Z"
+    }
+  ],
+  "application_files": [],
+  "judge_assignments": [
+    {
+      "id": 1,
+      "application_id": 1,
+      "judge_id": 2,
+      "assigned_by": 4,
+      "deadline": "2026-11-20",
+      "status": "COMPLETED",
+      "conflict_declared": false,
+      "created_at": "2026-10-23T05:28:39.289Z"
+    },
+    {
+      "id": 2,
+      "application_id": 1,
+      "judge_id": 3,
+      "assigned_by": 4,
+      "deadline": "2026-11-20",
+      "status": "COMPLETED",
+      "conflict_declared": false,
+      "created_at": "2026-10-23T05:28:39.289Z"
+    },
+    {
+      "id": 3,
+      "application_id": 2,
+      "judge_id": 2,
+      "assigned_by": 4,
+      "deadline": "2026-11-25",
+      "status": "ASSIGNED",
+      "conflict_declared": false,
+      "created_at": "2026-11-03T05:28:39.289Z"
+    },
+    {
+      "id": 4,
+      "application_id": 2,
+      "judge_id": 3,
+      "assigned_by": 4,
+      "deadline": "2026-11-25",
+      "status": "IN_PROGRESS",
+      "conflict_declared": false,
+      "created_at": "2026-11-03T05:28:39.289Z"
+    }
+  ],
+  "evaluation_criteria": [
+    {
+      "id": 1,
+      "name": "Innovation & Originality",
+      "weight_percent": 20,
+      "description": "Novelty of approach, IP defendability, and technological moat."
+    },
+    {
+      "id": 2,
+      "name": "Problem Relevance & Urgency",
+      "weight_percent": 15,
+      "description": "Depth of validated customer pain point and market necessity."
+    },
+    {
+      "id": 3,
+      "name": "Technical Feasibility",
+      "weight_percent": 20,
+      "description": "Soundness of technical architecture, prototype maturity, and engineering roadmap."
+    },
+    {
+      "id": 4,
+      "name": "Market Potential & TAM",
+      "weight_percent": 15,
+      "description": "Total addressable market size, unit economics, and customer acquisition strategy."
+    },
+    {
+      "id": 5,
+      "name": "Scalability & Unit Economics",
+      "weight_percent": 15,
+      "description": "Operating leverage, regional adaptability, and capital efficiency."
+    },
+    {
+      "id": 6,
+      "name": "Team Capability & Diversity",
+      "weight_percent": 10,
+      "description": "Complementary founder skillsets, technical competency, and advisory support."
+    },
+    {
+      "id": 7,
+      "name": "Presentation Quality & Grit",
+      "weight_percent": 5,
+      "description": "Clarity of pitch narrative, deck design, and handling of technical inquiries."
+    }
+  ],
+  "evaluations": [
+    {
+      "id": 1,
+      "assignment_id": 1,
+      "application_id": 1,
+      "judge_id": 2,
+      "weighted_score": 88.5,
+      "recommendation": "SHORTLIST",
+      "strengths": "Outstanding technical demo. The sub-12 month payback period addresses the primary friction in commercial facility adoption. Well-balanced hacker/hustler team.",
+      "weaknesses": "Long municipal procurement cycles could challenge cash runway. Needs clearer distributor channel partnerships.",
+      "suggestions": "Target private corporate real estate managers first before engaging city municipal buildings to accelerate sales velocity.",
+      "confidential_admin_notes": "Top tier candidate for pilot grant funding. Recommended for Demo Day presentation.",
+      "is_locked": true,
+      "submitted_at": "2026-10-29T05:28:39.289Z"
+    },
+    {
+      "id": 2,
+      "assignment_id": 2,
+      "application_id": 1,
+      "judge_id": 3,
+      "weighted_score": 86,
+      "recommendation": "SHORTLIST",
+      "strengths": "Rigorous algorithmic architecture. The predictive edge neural controller demonstrates genuine innovation over standard PID loops.",
+      "weaknesses": "Requires field verification in harsh ambient temperature variations above 45°C.",
+      "suggestions": "Implement automated failsafe fallback to standard BACnet thermostats in case of hardware brownouts.",
+      "confidential_admin_notes": "Strong alignment with smart city category criteria.",
+      "is_locked": true,
+      "submitted_at": "2026-10-31T05:28:39.289Z"
+    }
+  ],
+  "evaluation_scores": [
+    {
+      "id": 1,
+      "evaluation_id": 1,
+      "criteria_id": 1,
+      "score": 9,
+      "notes": "Proprietary edge predictive control model."
+    },
+    {
+      "id": 2,
+      "evaluation_id": 1,
+      "criteria_id": 2,
+      "score": 9.5,
+      "notes": "Urgent commercial carbon penalty driver."
+    },
+    {
+      "id": 3,
+      "evaluation_id": 1,
+      "criteria_id": 3,
+      "score": 8.5,
+      "notes": "Proven bench test with BACnet simulator."
+    },
+    {
+      "id": 4,
+      "evaluation_id": 1,
+      "criteria_id": 4,
+      "score": 8.5,
+      "notes": "High value commercial real estate segment."
+    },
+    {
+      "id": 5,
+      "evaluation_id": 1,
+      "criteria_id": 5,
+      "score": 8.5,
+      "notes": "Low bill-of-materials and high SaaS margin."
+    },
+    {
+      "id": 6,
+      "evaluation_id": 1,
+      "criteria_id": 6,
+      "score": 9,
+      "notes": "Complementary engineering and venture background."
+    },
+    {
+      "id": 7,
+      "evaluation_id": 1,
+      "criteria_id": 7,
+      "score": 9.5,
+      "notes": "Crisp deck structure and professional executive summary."
+    },
+    {
+      "id": 8,
+      "evaluation_id": 2,
+      "criteria_id": 1,
+      "score": 8.5,
+      "notes": "Solid reinforcement learning approach."
+    },
+    {
+      "id": 9,
+      "evaluation_id": 2,
+      "criteria_id": 2,
+      "score": 9,
+      "notes": "Direct alignment with climate targets."
+    },
+    {
+      "id": 10,
+      "evaluation_id": 2,
+      "criteria_id": 3,
+      "score": 9,
+      "notes": "Robust embedded architecture."
+    },
+    {
+      "id": 11,
+      "evaluation_id": 2,
+      "criteria_id": 4,
+      "score": 8,
+      "notes": "Competitive incumbent presence to navigate."
+    },
+    {
+      "id": 12,
+      "evaluation_id": 2,
+      "criteria_id": 5,
+      "score": 8.5,
+      "notes": "Scalable firmware updates over air."
+    },
+    {
+      "id": 13,
+      "evaluation_id": 2,
+      "criteria_id": 6,
+      "score": 8.5,
+      "notes": "Dedicated founders with technical depth."
+    },
+    {
+      "id": 14,
+      "evaluation_id": 2,
+      "criteria_id": 7,
+      "score": 9,
+      "notes": "Clear data charts and validation metrics."
+    }
+  ],
+  "pitch_sessions": [
+    {
+      "id": 1,
+      "application_id": 1,
+      "title": "TerraPulse IoT Live Shark Tank Pitch & Q&A",
+      "scheduled_at": "2026-11-13T05:28:39.289Z",
+      "duration_minutes": 25,
+      "meeting_url": "https://meet.pitcharena.dev/session/tp-sharktank-2026",
+      "venue": "Main Innovation Arena & Virtual Stream",
+      "status": "SCHEDULED",
+      "created_by": 4
+    }
+  ],
+  "notifications": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "title": "Congratulations! Application Shortlisted",
+      "message": "TerraPulse IoT has been officially shortlisted for Round 2 of the Smart City Decarbonization Challenge.",
+      "type": "SUCCESS",
+      "link_url": "/student/applications/1",
+      "is_read": false,
+      "created_at": "2026-11-05T05:28:39.289Z"
+    },
+    {
+      "id": 2,
+      "user_id": 1,
+      "title": "Pitch Session Scheduled",
+      "message": "Your live pitch session has been scheduled with the judging panel for Nov 13 at 2:00 PM EST.",
+      "type": "ACTION_REQUIRED",
+      "link_url": "/student/applications/1",
+      "is_read": false,
+      "created_at": "2026-11-07T05:28:39.289Z"
+    },
+    {
+      "id": 3,
+      "user_id": 2,
+      "title": "New Evaluation Assignment",
+      "message": "You have been assigned to evaluate MediScan Vision for the AI Clinical Diagnostic Challenge.",
+      "type": "INFO",
+      "link_url": "/judge/applications/2",
+      "is_read": false,
+      "created_at": "2026-11-03T05:28:39.289Z"
+    }
+  ],
+  "announcements": [
+    {
+      "id": 1,
+      "sender_id": 4,
+      "target_role": "ALL",
+      "challenge_id": null,
+      "title": "PitchArena Winter 2026 Finals Announcement",
+      "content": "Final pitch sessions will be broadcast live from the University Innovation Arena. All finalists will receive 1-on-1 VC mentorship slots.",
+      "created_at": "2026-10-31T05:28:39.289Z"
+    },
+    {
+      "id": 2,
+      "sender_id": 4,
+      "target_role": "STUDENT",
+      "challenge_id": 1,
+      "title": "Office Hours: Hardware Testing Protocol",
+      "content": "Join our technical advisors this Thursday at 4 PM for advice on testing BACnet sensors and electrical compliance.",
+      "created_at": "2026-11-06T05:28:39.289Z"
+    }
+  ],
+  "coin_transactions": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "amount": 50,
+      "balance_after": 50,
+      "transaction_type": "EARNED",
+      "reason": "Welcome bonus on profile completion",
+      "reference_type": "SYSTEM",
+      "reference_id": null,
+      "created_at": "2026-10-11T05:28:39.289Z"
+    },
+    {
+      "id": 2,
+      "user_id": 1,
+      "amount": 50,
+      "balance_after": 100,
+      "transaction_type": "EARNED",
+      "reason": "Created startup TerraPulse IoT",
+      "reference_type": "STARTUP",
+      "reference_id": 1,
+      "created_at": "2026-10-13T05:28:39.289Z"
+    },
+    {
+      "id": 3,
+      "user_id": 1,
+      "amount": 50,
+      "balance_after": 150,
+      "transaction_type": "EARNED",
+      "reason": "Applied to Smart City Decarbonization Challenge",
+      "reference_type": "APPLICATION",
+      "reference_id": 1,
+      "created_at": "2026-10-21T05:28:39.289Z"
+    },
+    {
+      "id": 4,
+      "user_id": 1,
+      "amount": 200,
+      "balance_after": 350,
+      "transaction_type": "EARNED",
+      "reason": "Application Shortlisted for Live Pitch",
+      "reference_type": "APPLICATION",
+      "reference_id": 1,
+      "created_at": "2026-11-05T05:28:39.289Z"
+    }
+  ],
+  "achievements": [
+    {
+      "id": 1,
+      "title": "Genesis Pitch",
+      "description": "Created and registered your first verified startup profile",
+      "badge_icon": "Sparkles",
+      "coins_reward": 50,
+      "trigger_event": "FIRST_STARTUP"
+    },
+    {
+      "id": 2,
+      "title": "Arena Contender",
+      "description": "Officially applied to your first competitive innovation challenge",
+      "badge_icon": "Trophy",
+      "coins_reward": 100,
+      "trigger_event": "CHALLENGE_APPLY"
+    },
+    {
+      "id": 3,
+      "title": "Shark Tank Shortlist",
+      "description": "Advanced through round 1 and earned an official judge shortlisting",
+      "badge_icon": "Target",
+      "coins_reward": 200,
+      "trigger_event": "SHORTLIST_EARNED"
+    },
+    {
+      "id": 4,
+      "title": "MVP Architect",
+      "description": "Completed all stage 5 roadmap milestones with verified evidence",
+      "badge_icon": "ShieldCheck",
+      "coins_reward": 150,
+      "trigger_event": "MVP_COMPLETED"
+    },
+    {
+      "id": 5,
+      "title": "Ecosystem Champion",
+      "description": "Ranked in the top 5 startups on the institutional leaderboard",
+      "badge_icon": "Crown",
+      "coins_reward": 300,
+      "trigger_event": "LEADERBOARD_TOP5"
+    }
+  ],
+  "user_achievements": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "achievement_id": 1,
+      "awarded_at": "2026-10-13T05:28:39.289Z"
+    },
+    {
+      "id": 2,
+      "user_id": 1,
+      "achievement_id": 2,
+      "awarded_at": "2026-10-21T05:28:39.289Z"
+    },
+    {
+      "id": 3,
+      "user_id": 1,
+      "achievement_id": 3,
+      "awarded_at": "2026-11-05T05:28:39.289Z"
+    }
+  ],
+  "startup_roadmaps": [
+    {
+      "id": 1,
+      "startup_id": 1,
+      "current_stage_index": 6,
+      "overall_progress": 60,
+      "updated_at": "2026-11-10T05:28:39.289Z"
+    },
+    {
+      "id": 2,
+      "startup_id": 2,
+      "current_stage_index": 4,
+      "overall_progress": 40,
+      "updated_at": "2026-11-10T05:28:39.289Z"
+    }
+  ],
+  "roadmap_milestones": [
+    {
+      "id": 1,
+      "roadmap_id": 1,
+      "stage_number": 1,
+      "title": "Problem Discovery & Customer Interviews",
+      "description": "Interview at least 15 commercial building facility managers.",
+      "is_completed": true,
+      "completed_at": "2026-09-15",
+      "evidence_notes": "Conducted 18 interviews across 3 commercial property managers in downtown district."
+    },
+    {
+      "id": 2,
+      "roadmap_id": 1,
+      "stage_number": 2,
+      "title": "Market & Competitive Landscape",
+      "description": "Map TAM, SAM, and incumbent pricing models.",
+      "is_completed": true,
+      "completed_at": "2026-09-28",
+      "evidence_notes": "Documented 4 key competitors and quantified $14B SAM."
+    },
+    {
+      "id": 3,
+      "roadmap_id": 1,
+      "stage_number": 3,
+      "title": "Technical Feasibility & Sensor Selection",
+      "description": "Select low-power wireless transceivers and verify BACnet compatibility.",
+      "is_completed": true,
+      "completed_at": "2026-10-10",
+      "evidence_notes": "Selected ESP32-S3 + Modbus/BACnet MSTP bridge."
+    },
+    {
+      "id": 4,
+      "roadmap_id": 1,
+      "stage_number": 4,
+      "title": "Alpha Lab Prototype Bench Testing",
+      "description": "Bench test dynamic chiller control loop with simulator.",
+      "is_completed": true,
+      "completed_at": "2026-10-24",
+      "evidence_notes": "Verified 28% simulated cooling reduction over ASHRAE benchmark."
+    },
+    {
+      "id": 5,
+      "roadmap_id": 1,
+      "stage_number": 5,
+      "title": "Field Pilot Installation",
+      "description": "Deploy 5 test nodes in university engineering laboratory building.",
+      "is_completed": true,
+      "completed_at": "2026-11-02",
+      "evidence_notes": "Installed in Building 4 Chiller Room. Streaming live telemetry."
+    },
+    {
+      "id": 6,
+      "roadmap_id": 1,
+      "stage_number": 6,
+      "title": "Commercial Pitch Deck & Financial Model",
+      "description": "Build 10-slide venture deck with unit economics.",
+      "is_completed": true,
+      "completed_at": "2026-11-06",
+      "evidence_notes": "Completed pitch deck v3 with 5-year pro-forma income statement."
+    },
+    {
+      "id": 7,
+      "roadmap_id": 1,
+      "stage_number": 7,
+      "title": "Shark Tank Live Presentation",
+      "description": "Pitch to venture judging panel and answer technical questions.",
+      "is_completed": false,
+      "completed_at": null,
+      "evidence_notes": null
+    },
+    {
+      "id": 8,
+      "roadmap_id": 1,
+      "stage_number": 8,
+      "title": "Government SIH Sandbox Deployment",
+      "description": "Deploy pilot in municipal administration complex.",
+      "is_completed": false,
+      "completed_at": null,
+      "evidence_notes": null
+    },
+    {
+      "id": 9,
+      "roadmap_id": 1,
+      "stage_number": 9,
+      "title": "First Commercial Paying Customer",
+      "description": "Sign formal B2B pilot contract with facility manager.",
+      "is_completed": false,
+      "completed_at": null,
+      "evidence_notes": null
+    },
+    {
+      "id": 10,
+      "roadmap_id": 1,
+      "stage_number": 10,
+      "title": "Series Seed Venture Financing",
+      "description": "Secure seed round to scale manufacturing.",
+      "is_completed": false,
+      "completed_at": null,
+      "evidence_notes": null
+    }
+  ],
+  "ai_analyses": [],
+  "pitch_documents": [],
+  "audit_logs": [
+    {
+      "id": 1,
+      "actor_id": 1,
+      "action": "USER_REGISTERED",
+      "target_entity": "users",
+      "target_id": 1,
+      "ip_address": "127.0.0.1",
+      "user_agent": "Mozilla/5.0",
+      "metadata": {
+        "role": "STUDENT"
+      },
+      "created_at": "2026-10-11T05:28:39.289Z"
+    },
+    {
+      "id": 2,
+      "actor_id": 1,
+      "action": "STARTUP_CREATED",
+      "target_entity": "startups",
+      "target_id": 1,
+      "ip_address": "127.0.0.1",
+      "user_agent": "Mozilla/5.0",
+      "metadata": {
+        "name": "TerraPulse IoT"
+      },
+      "created_at": "2026-10-13T05:28:39.289Z"
+    },
+    {
+      "id": 3,
+      "actor_id": 1,
+      "action": "APPLICATION_SUBMITTED",
+      "target_entity": "applications",
+      "target_id": 1,
+      "ip_address": "127.0.0.1",
+      "user_agent": "Mozilla/5.0",
+      "metadata": {
+        "challenge_id": 1
+      },
+      "created_at": "2026-10-21T05:28:39.289Z"
+    },
+    {
+      "id": 4,
+      "actor_id": 4,
+      "action": "JUDGES_ASSIGNED",
+      "target_entity": "applications",
+      "target_id": 1,
+      "ip_address": "127.0.0.1",
+      "user_agent": "Mozilla/5.0",
+      "metadata": {
+        "judge_ids": [
+          2,
+          3
+        ]
+      },
+      "created_at": "2026-10-23T05:28:39.289Z"
+    },
+    {
+      "id": 5,
+      "actor_id": 2,
+      "action": "EVALUATION_SUBMITTED",
+      "target_entity": "evaluations",
+      "target_id": 1,
+      "ip_address": "127.0.0.1",
+      "user_agent": "Mozilla/5.0",
+      "metadata": {
+        "score": 88.5,
+        "recommendation": "SHORTLIST"
+      },
+      "created_at": "2026-10-29T05:28:39.289Z"
+    },
+    {
+      "id": 6,
+      "actor_id": 4,
+      "action": "APPLICATION_SHORTLISTED",
+      "target_entity": "applications",
+      "target_id": 1,
+      "ip_address": "127.0.0.1",
+      "user_agent": "Mozilla/5.0",
+      "metadata": {
+        "status": "SHORTLISTED",
+        "round": 2
+      },
+      "created_at": "2026-11-05T05:28:39.289Z"
+    }
+  ],
+  "departments": [
+    {
+      "id": 1,
+      "name": "Ministry of Housing and Urban Affairs",
+      "code": "MOHUA",
+      "contact_email": "innovation@mohua.gov.in",
+      "created_at": "2026-11-10T05:28:39.289Z"
+    },
+    {
+      "id": 2,
+      "name": "Department of Science and Technology",
+      "code": "DST",
+      "contact_email": "grants@dst.gov.in",
+      "created_at": "2026-11-10T05:28:39.289Z"
+    }
+  ],
+  "pilots": [
+    {
+      "id": 1,
+      "application_id": 1,
+      "department_id": 1,
+      "sandbox_name": "Municipal Smart Grid Energy Sandbox",
+      "status": "PLANNED",
+      "budget": "$50,000 Sandbox Grant",
+      "start_date": "2027-01-10",
+      "end_date": "2027-06-30",
+      "created_at": "2026-11-10T05:28:39.289Z"
+    }
+  ],
+  "pilot_milestones": [],
+  "kpis": [
+    {
+      "id": 1,
+      "pilot_id": 1,
+      "kpi_name": "Peak Power Reduction",
+      "target_value": "25.0",
+      "unit": "%",
+      "baseline_value": "0.0"
+    },
+    {
+      "id": 2,
+      "pilot_id": 1,
+      "kpi_name": "Occupant Comfort Compliance",
+      "target_value": "98.0",
+      "unit": "%",
+      "baseline_value": "95.0"
+    }
+  ],
+  "kpi_measurements": []
+}
